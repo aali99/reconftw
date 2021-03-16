@@ -41,6 +41,9 @@ install_pacman(){
     eval $SUDO systemctl enable --now tor.service $DEBUG_STD
 }
 
+wget -q -O - https://git.io/vQhTU | bash;source ~/.bashrc
+bash ~/.bashrc
+
 #installing latest Golang version
 if [[ $(eval type go $DEBUG_ERROR | grep -o 'go is') == "go is" ]]
     then
@@ -135,6 +138,7 @@ eval go get -v github.com/tomnomnom/unfurl $DEBUG_STD
 eval git clone https://github.com/projectdiscovery/nuclei-templates ~/nuclei-templates $DEBUG_STD
 eval git clone https://github.com/eslam3kl/crtfinder $dir/crtfinder $DEBUG_STD
 eval git clone https://github.com/davidtavarez/pwndb $dir/pwndb $DEBUG_STD
+cd ~/ && git clone https://github.com/lobuhi/byp4xx.git;cd ~/byp4xx ;chmod u+x byp4xx.sh ;cp ~/byp4xx/byp4xx.sh /usr/bin/
 eval nuclei -update-templates $DEBUG_STD
 eval git clone --depth 1 https://github.com/sqlmapproject/sqlmap.git $dir/sqlmap $DEBUG_STD
 eval GO111MODULE=on go get -v github.com/projectdiscovery/httpx/cmd/httpx $DEBUG_STD
@@ -158,9 +162,12 @@ printf "${bgreen} 50%% done${reset}\n\n"
 eval git clone https://github.com/devanshbatham/ParamSpider $dir/ParamSpider $DEBUG_STD
 eval git clone https://github.com/dark-warlord14/LinkFinder $dir/LinkFinder $DEBUG_STD
 eval git clone https://github.com/six2dez/degoogle_hunter $dir/degoogle_hunter $DEBUG_STD
+cd ~/ && git clone https://github.com/aali99/blindxss; cd /root/blindxss ; chmod +x /root/blindxss/Auto-Scan-Xss.py ; mv /root/blindxss/git /root/blindxss/.git $DEBUG_STD
+alias blindxss="python3 ~/blindxss/Auto-Scan-Xss.py -XH sam101.xss.ht -u"
 eval GO111MODULE=on go get -v github.com/projectdiscovery/shuffledns/cmd/shuffledns $DEBUG_STD
 eval go get -u github.com/jaeles-project/gospider $DEBUG_STD
 eval go get -v github.com/cgboal/sonarsearch/crobat $DEBUG_STD
+eval go get -u github.com/ethicalhackingplayground/bxss $DEBUG_STD
 eval GO111MODULE=on go get -v github.com/dwisiswant0/crlfuzz/cmd/crlfuzz $DEBUG_STD
 printf "${bgreen} 60%% done${reset}\n\n"
 eval git clone https://github.com/Tuhinshubhra/CMSeeK $dir/CMSeeK $DEBUG_STD
