@@ -41,8 +41,8 @@ install_pacman(){
     eval $SUDO systemctl enable --now tor.service $DEBUG_STD
 }
 
-wget -q -O - https://git.io/vQhTU | bash;source ~/.bashrc
-bash ~/.bashrc
+#wget -q -O - https://git.io/vQhTU | bash;source ~/.bashrc
+#bash ~/.bashrc
 
 #installing latest Golang version
 if [[ $(eval type go $DEBUG_ERROR | grep -o 'go is') == "go is" ]]
